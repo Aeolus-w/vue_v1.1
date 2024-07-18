@@ -67,8 +67,6 @@
 </template>
 
 <script>
-// import '@/static/bootstrap-3.3.5/js/bootstrap.min.css';
-// import '@/static/bootstrap-3.3.5/js/bootstrap.js'
 import axios from 'axios';
 import { BModal, BButton } from 'bootstrap-vue-next';
 
@@ -108,18 +106,6 @@ export default {
     clearModal() {
       this.modalData = '';
     },
-    // savePdf() {
-    //   if (this.currentId !== null) {
-    //     axios
-    //       .get(`/savepdf?id=${this.currentId}`)
-    //       .then(response => {
-    //         console.log('PDF saved');
-    //       })
-    //       .catch(error => {
-    //         console.error(error);
-    //       });
-    //   }
-    // },
     savePdf() {
       if (this.currentId !== null) {
         axios
@@ -138,37 +124,79 @@ export default {
 </script>
 
 <style scoped>
-body {
-  background-color: #121212;
-  color: #ffffff;
-}
 .container {
-  background-color: #121212;
-  padding: 20px;
-  border-radius: 8px;
+  margin-bottom: 20px;
 }
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.form-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-select, .form-control {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.btn {
+  padding: 5px 15px;
+}
+
+.table {
+  margin-top: 20px;
+  background-color: #fff;
+}
+
 .table-hover tbody tr:hover {
-  background-color: #333333;
+  background-color: #f5f5f5;
 }
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: #1e1e1e;
+
+.table-responsive {
+  overflow-x: auto;
 }
-.table-striped tbody tr:nth-of-type(even) {
-  background-color: #2e2e2e;
+
+.table-condensed th, .table-condensed td {
+  padding: 8px;
 }
-.table thead th {
-  background-color: #333333;
-  border-color: #444444;
-  color: #ffffff;
+
+.text-center {
+  text-align: center;
 }
-.table tbody td {
-  background-color: #333333;
-  border-color: #000000;
-  color: #ffffff80;
+
+.text-nowrap {
+  white-space: nowrap;
 }
-.table tbody th {
-  background-color: #333333;
-  border-color: #000000;
-  color: #ffffff80;
+
+.bs-example {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.b-modal .modal-body {
+  padding: 20px;
+}
+
+.b-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.accordion {
+  margin-top: 20px;
 }
 </style>

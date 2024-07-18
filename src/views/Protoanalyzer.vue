@@ -138,17 +138,29 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  height: 400px;
-  width: 90%;
+.chart-container {
+  display: flex;
+  justify-content: space-around; /* 在容器内部元素之间平均分配空间 */
+  width: 90%; /* 容器宽度占父容器的90% */
+  margin: 0 auto; /* 居中显示容器 */
 }
+
+.chart-item {
+  height: 400px; /* 图表高度 */
+  width: 30%; /* 图表宽度 */
+}
+
 #pcap_len, #proto, #pcap_count {
-  float: left;
+  background-color: #f0f0f0; /* 图表背景色 */
 }
-#pcap_len, #pcap_count {
-  width: 25%;
+
+#http, #dns {
+  background-color: #f5f5f5; /* 图表背景色 */
 }
-#proto {
-  width: 50%;
+
+@media (max-width: 768px) {
+  .chart-item {
+    width: 100%; /* 在小屏幕下，图表宽度占据整个容器宽度 */
+  }
 }
 </style>

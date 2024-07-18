@@ -9,7 +9,7 @@
           <!-- 下拉菜单 -->
           <ul v-if="item.children && item.children.length > 0">
             <li v-for="child in item.children" :key="child.name">
-              <router-link :to="child.link">{{ child.name }}</router-link>
+              <router-link :to="child.link">--{{ child.name }}</router-link>
             </li>
           </ul>
         </li>
@@ -71,40 +71,54 @@ import Protoanalyzer from '../views/Protoanalyzer.vue';
   };
   </script>
   
-  <style scoped>
-  /* 可以添加样式 */
-  .has-dropdown ul {
-    display: none;
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 5px;
-  }
-  
-  .has-dropdown:hover ul {
-    display: block;
-  }
+<style scoped>
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  /* background-color: #37474f; 深蓝色背景 */
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
 
-  .sidebar {
-    width: 200px;
-    height: 100vh;
-    background-color: #f8f9fa;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin: 20px 0;
-  }
-  
-  .sidebar a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar li.has-dropdown > span {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sidebar a, .sidebar span {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover, .sidebar span:hover {
+  background-color: #63b3d8; /* 浅蓝色悬停效果 */
+}
+
+.sidebar ul ul {
+  padding-left: 15px;
+  display: none;
+}
+
+.sidebar li.has-dropdown:hover > ul {
+  display: block; /* 悬停时显示下拉菜单 */
+}
+
+.sidebar ul ul li a {
+  padding-left: 20px; /* 缩进子菜单项 */
+}
   </style>
   
